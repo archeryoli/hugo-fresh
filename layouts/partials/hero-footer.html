@@ -7,10 +7,13 @@
     </div>
     <div class="tabs is-centered">
       <ul style="gap: 50px">
-        {{- range $clientLogos }}
+        {{- range $i, $v := $clientLogos }}
+        {{ if $i }}
+        <div style="height: 100%; width: 0.2px; border: 0.2px solid #5555;"></div>
+        {{ end }}
         <li>
-          <a {{ if .url }} href="{{ .url }}" {{ end }}>
-            <img class="partner-logo" src="{{ printf "images/logos/clients/%s" .logo | relURL }}">
+          <a {{ if $v.url }} href="{{ $v.url }}" {{ end }}>
+            <img class="partner-logo" src="{{ printf "images/logos/clients/%s" $v.logo | relURL }}">
           </a>
         </li>
         {{- end }}
